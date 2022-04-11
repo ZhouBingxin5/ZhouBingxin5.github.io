@@ -6,16 +6,23 @@
   
   <title>NeuralNetwork | Zhou&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="简单神经网络,output&#x3D;sigmod((w1x1+w2x2+…wn*xn)+b)">
+  <meta name="description" content="Foundmental  简单神经网络,output&#x3D;sigma((w1x1+w2x2+…wn*xn)+b)  Activate Function    它对每个神经元的输出进行了归一化，并且取值是0到1，因此非常适合作为概率预测（逻辑回归问题），但是它存在梯度消失现象。     它与sigmoid相似，但是tanh是以0为中心，并且当值过大或者过小时，它的曲线更加平滑（一般来说tanh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NeuralNetwork">
 <meta property="og:url" content="http://example.com/2022/04/11/NeuralNetwork/index.html">
 <meta property="og:site_name" content="Zhou&#39;s blog">
-<meta property="og:description" content="简单神经网络,output&#x3D;sigmod((w1x1+w2x2+…wn*xn)+b)">
+<meta property="og:description" content="Foundmental  简单神经网络,output&#x3D;sigma((w1x1+w2x2+…wn*xn)+b)  Activate Function    它对每个神经元的输出进行了归一化，并且取值是0到1，因此非常适合作为概率预测（逻辑回归问题），但是它存在梯度消失现象。     它与sigmoid相似，但是tanh是以0为中心，并且当值过大或者过小时，它的曲线更加平滑（一般来说tanh">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/SimpleNetwork.png">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/sigmod.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/tanh.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/relu.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/leakrelu.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/Leakrelu1.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/softmax.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/softmax1.jpg">
 <meta property="article:published_time" content="2022-04-11T13:54:13.000Z">
-<meta property="article:modified_time" content="2022-04-11T14:06:50.794Z">
+<meta property="article:modified_time" content="2022-04-11T14:45:14.013Z">
 <meta property="article:author" content="Zhou">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/04/11/NeuralNetwork/SimpleNetwork.png">
@@ -97,15 +104,37 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <img src="/2022/04/11/NeuralNetwork/SimpleNetwork.png" class title="This is an example image">
+        <h2 id="Foundmental"><a href="#Foundmental" class="headerlink" title="Foundmental"></a>Foundmental</h2><img src="/2022/04/11/NeuralNetwork/SimpleNetwork.png" class title="This is an example image">
 <blockquote>
-<p>简单神经网络,output&#x3D;sigmod((w1<em>x1+w2</em>x2+…wn*xn)+b)</p>
+<p>简单神经网络,output&#x3D;sigma((w1<em>x1+w2</em>x2+…wn*xn)+b)</p>
+</blockquote>
+<h3 id="Activate-Function"><a href="#Activate-Function" class="headerlink" title="Activate Function"></a>Activate Function</h3><img src="/2022/04/11/NeuralNetwork/sigmod.jpg" class title="This is an example image">  
+<blockquote>
+<p>它对每个神经元的输出进行了归一化，并且取值是0到1，因此非常适合作为概率预测（逻辑回归问题），但是它存在梯度消失现象。</p>
+</blockquote>
+<img src="/2022/04/11/NeuralNetwork/tanh.jpg" class title="This is an example image"> 
+<blockquote>
+<p>它与sigmoid相似，但是tanh是以0为中心，并且当值过大或者过小时，它的曲线更加平滑（一般来说tanh更多用于隐藏层中，sigmoid更多应用于输出层）</p>
+</blockquote>
+<img src="/2022/04/11/NeuralNetwork/relu.jpg" class title="This is an example image">
+<blockquote>
+<p>当输入为正的时候，不它不会存在梯度饱和现象并且因为线性关系的原因，计算速度也比sigmoid和tanh更快，不过它存在当输入为负的时候，relu就完全失效了。</p>
+</blockquote>
+<img src="/2022/04/11/NeuralNetwork/leakrelu.jpg" class title="This is an example image"> 
+<img src="/2022/04/11/NeuralNetwork/Leakrelu1.jpg" class title="This is an example image"> 
+<blockquote>
+<p>LeakRelu理论上来说具有了Relu的所有有点，通常可以对a的值取一个比较小的值，来调整负值的零梯度问题，这样扩展了传统Relu的范围，应用上尚未证明LeakRelu优于Relu</p>
+</blockquote>
+<img src="/2022/04/11/NeuralNetwork/softmax.jpg" class title="This is an example image">
+<img src="/2022/04/11/NeuralNetwork/softmax1.jpg" class title="This is an example image">
+<blockquote>
+<p>SoftMax适用于多分类问题的激活函数，在最后一层对值进行归一化</p>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/11/NeuralNetwork/" data-id="cl1ushxzo0000jkue3tcmb8wy" data-title="NeuralNetwork" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/11/NeuralNetwork/" data-id="cl1utw3dz0000b0uegxck7wgp" data-title="NeuralNetwork" class="article-share-link">Share</a>
       
       
       
