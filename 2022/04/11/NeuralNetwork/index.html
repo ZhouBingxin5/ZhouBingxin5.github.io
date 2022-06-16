@@ -6,12 +6,12 @@
   
   <title>NeuralNetwork | Zhou&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Foundmental  简单神经网络,output&#x3D;sigma((w1x1+w2x2+…wn*xn)+b)  Activate Function    它对每个神经元的输出进行了归一化，并且取值是0到1，因此非常适合作为概率预测（逻辑回归问题），但是它存在梯度消失现象。     它与sigmoid相似，但是tanh是以0为中心，并且当值过大或者过小时，它的曲线更加平滑（一般来说tanh">
+  <meta name="description" content="Foundmental  简单神经网络,output&#x3D;sigma((w1x1+w2x2+…wn*xn)+b)   Activate Function    它对每个神经元的输出进行了归一化，并且取值是0到1，因此非常适合作为概率预测（逻辑回归问题），但是它存在梯度消失现象。     它与sigmoid相似，但是tanh是以0为中心，并且当值过大或者过小时，它的曲线更加平滑（一般来说tan">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NeuralNetwork">
 <meta property="og:url" content="http://example.com/2022/04/11/NeuralNetwork/index.html">
 <meta property="og:site_name" content="Zhou&#39;s blog">
-<meta property="og:description" content="Foundmental  简单神经网络,output&#x3D;sigma((w1x1+w2x2+…wn*xn)+b)  Activate Function    它对每个神经元的输出进行了归一化，并且取值是0到1，因此非常适合作为概率预测（逻辑回归问题），但是它存在梯度消失现象。     它与sigmoid相似，但是tanh是以0为中心，并且当值过大或者过小时，它的曲线更加平滑（一般来说tanh">
+<meta property="og:description" content="Foundmental  简单神经网络,output&#x3D;sigma((w1x1+w2x2+…wn*xn)+b)   Activate Function    它对每个神经元的输出进行了归一化，并且取值是0到1，因此非常适合作为概率预测（逻辑回归问题），但是它存在梯度消失现象。     它与sigmoid相似，但是tanh是以0为中心，并且当值过大或者过小时，它的曲线更加平滑（一般来说tan">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/SimpleNetwork.png">
 <meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/sigmod.jpg">
@@ -21,8 +21,20 @@
 <meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/Leakrelu1.jpg">
 <meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/softmax.jpg">
 <meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/softmax1.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/grandientdescent.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/bgd.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/MBGD.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/adagrad.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/MSE.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/MAE.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/RMSE.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/CCECF.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/BCE.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/KL.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/PRL.jpg">
+<meta property="og:image" content="http://example.com/2022/04/11/NeuralNetwork/TRL.jpg">
 <meta property="article:published_time" content="2022-04-11T13:54:13.000Z">
-<meta property="article:modified_time" content="2022-04-11T14:45:14.013Z">
+<meta property="article:modified_time" content="2022-04-12T10:32:13.902Z">
 <meta property="article:author" content="Zhou">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/04/11/NeuralNetwork/SimpleNetwork.png">
@@ -108,6 +120,7 @@
 <blockquote>
 <p>简单神经网络,output&#x3D;sigma((w1<em>x1+w2</em>x2+…wn*xn)+b)</p>
 </blockquote>
+<hr>
 <h3 id="Activate-Function"><a href="#Activate-Function" class="headerlink" title="Activate Function"></a>Activate Function</h3><img src="/2022/04/11/NeuralNetwork/sigmod.jpg" class title="This is an example image">  
 <blockquote>
 <p>它对每个神经元的输出进行了归一化，并且取值是0到1，因此非常适合作为概率预测（逻辑回归问题），但是它存在梯度消失现象。</p>
@@ -130,7 +143,44 @@
 <blockquote>
 <p>SoftMax适用于多分类问题的激活函数，在最后一层对值进行归一化</p>
 </blockquote>
+<hr>
+<h3 id="Gradient-descent"><a href="#Gradient-descent" class="headerlink" title="Gradient descent"></a>Gradient descent</h3><blockquote>
+<p>Grandient descent也可以理解为寻找最小值的方法，在深度学习中，梯度下降就是寻找损失函数最小的时候网络权重的方法。</p>
+</blockquote>
+<img src="/2022/04/11/NeuralNetwork/grandientdescent.jpg" class title="This is an example image">
 
+<h4 id="SGD-and-BGD"><a href="#SGD-and-BGD" class="headerlink" title="SGD and BGD"></a>SGD and BGD</h4><blockquote>
+<p>假设我们现在有一批样本呢，SGD(随机梯度下降）是每次选择样本中的一个进行迭代，直至样本集中所有样本迭代完成。这样做好处就是可以占用更少的资源，更新速度更快，坏处错误的样本会一定程度影响下降的速度，但是总体还是会朝着最优点下降。相反，BGD(批量梯度下降)是对于这批样本，每次将所有样本放入进行更新，每更新一个样本都需要对所有样本进行一个加和。</p>
+</blockquote>
+<img src="/2022/04/11/NeuralNetwork/bgd.jpg" class title="This is an example image">
+
+<h4 id="The-combine-of-them-（Mini-Batch-gradient-descent-）"><a href="#The-combine-of-them-（Mini-Batch-gradient-descent-）" class="headerlink" title="The combine of them （Mini-Batch gradient descent ）"></a>The combine of them （Mini-Batch gradient descent ）</h4><blockquote>
+<p>完整的样本集拥有N个样本，每次取b个样本，并且更新这b个样本，SGD是b&#x3D;1的情况，BGD是b&#x3D;N的情况，Mini-batch可以看作两者的折中</p>
+</blockquote>
+<img src="/2022/04/11/NeuralNetwork/MBGD.jpg" class title="This is an example image">
+
+<h4 id="Adagrad"><a href="#Adagrad" class="headerlink" title="Adagrad"></a>Adagrad</h4><blockquote>
+<p>由于SGD中 对于某些参数，固定的a（learning rate）学习效率并不高，所以对于学习率采用以下的改进,s一般初始化为0，然后随着参数更新，每次将参数的梯度平方求和累加到s上，伊普西隆通常取一个很小值，它的存在是为了防止s初始化为0的时候，分数趋近于无穷大。η是初始化的learning rate。可以从这个式子中看到，当一个参数的梯度较大的时候，分母就会特别大，这就会导致学习率减小，防止振荡现象产生。如果参数梯度很小，那么相应的让学习率上升，加快更新。</p>
+</blockquote>
+<img src="/2022/04/11/NeuralNetwork/adagrad.jpg" class title="This is an example image">
+<hr>
+<h3 id="Loss-Function"><a href="#Loss-Function" class="headerlink" title="Loss Function"></a>Loss Function</h3><blockquote>
+<p>总体来说，损失函数是对于你的算法&#x2F;模型在你数据集上表现好坏的评估。它有助于我们了解predict和groundtruth之间的差异。损失函数总体分为三大类，回归，二分类，多分类。<br>常用损失函数：</p>
+</blockquote>
+<h5 id="Mean-Squared-Error"><a href="#Mean-Squared-Error" class="headerlink" title="Mean Squared Error"></a>Mean Squared Error</h5><img src="/2022/04/11/NeuralNetwork/MSE.jpg" class title="This is an example image">
+<h5 id="Mean-Absolute-Erroe"><a href="#Mean-Absolute-Erroe" class="headerlink" title="Mean Absolute Erroe"></a>Mean Absolute Erroe</h5><img src="/2022/04/11/NeuralNetwork/MAE.jpg" class title="This is an example image">
+<h5 id="Root-Mean-Squared-Error"><a href="#Root-Mean-Squared-Error" class="headerlink" title="Root Mean Squared Error"></a>Root Mean Squared Error</h5><img src="/2022/04/11/NeuralNetwork/RMSE.jpg" class title="This is an example image">
+<h5 id="Categorical-Cross-Entropy-Cost-Function-分类交叉熵"><a href="#Categorical-Cross-Entropy-Cost-Function-分类交叉熵" class="headerlink" title="Categorical Cross Entropy Cost Function(分类交叉熵)"></a>Categorical Cross Entropy Cost Function(分类交叉熵)</h5><img src="/2022/04/11/NeuralNetwork/CCECF.jpg" class title="This is an example image">
+<h5 id="Binary-Cross-Entropy-Cost-Function"><a href="#Binary-Cross-Entropy-Cost-Function" class="headerlink" title="Binary Cross Entropy Cost Function"></a>Binary Cross Entropy Cost Function</h5><img src="/2022/04/11/NeuralNetwork/BCE.jpg" class title="This is an example image">
+<h5 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="KL-Divergence"></a>KL-Divergence</h5><img src="/2022/04/11/NeuralNetwork/KL.jpg" class title="This is an example image">
+<blockquote>
+<p>KL散度是一个分布与另一个分布的概率差异的度量，KL散度在功能上类似于多类交叉熵，KL散度不能用于距离函数，因为它不是对称的。</p>
+</blockquote>
+<h5 id="Pairwise-Ranking-Loss"><a href="#Pairwise-Ranking-Loss" class="headerlink" title="Pairwise Ranking Loss"></a>Pairwise Ranking Loss</h5><img src="/2022/04/11/NeuralNetwork/PRL.jpg" class title="This is an example image">
+<blockquote>
+<p>我们从上式可以看到，当两个人的描述的是一个人时，他们嵌入表示距离大小就是loss，当描述不是一个人时，嵌入表示距离大于margin才不会产生loss。</p>
+</blockquote>
+<h5 id="Triplet-Ranking-Loss"><a href="#Triplet-Ranking-Loss" class="headerlink" title="Triplet Ranking Loss"></a>Triplet Ranking Loss</h5><img src="/2022/04/11/NeuralNetwork/TRL.jpg" class title="This is an example image">
       
     </div>
     <footer class="article-footer">
